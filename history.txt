@@ -1,0 +1,452 @@
+    1  source admin.rc
+    2  printenv | grep OS
+    3  openstack service list --long
+    4  openstack compuete service list
+    5  openstack compute service list
+    6  openstack --version
+    7  openstack catalog list | less
+    8  openstack endpoint list
+    9  openstack endpoint list --max width 20
+   10  openstack endpoint list --max-width 20
+   11  exit
+   12  keystone help | less
+   13  nova help | less
+   14  cinder help | less
+   15  openstack
+   16  openstack help
+   17  openstack help | less
+   18  openstack help | grep volume
+   19  clear
+   20  openstack help | grep user
+   21  ssh controller
+   22  exit
+   23  source admin.rc
+   24  openstack --os-auth-url http://controller:35357/v3 --os-project-domain-name default --os-user-domain-name default --os-project-name admin --os-username admin token issue
+   25  cd
+   26  mkdir images
+   27  cd images
+   28  wget http://download.cirros-cloud.net/0.3.4/cirros-0.3.4-x86_64-disk.img
+   29  openstack image create "cirros" --file cirros-0.3.4-x86_64-disk.img --disk-format qcow2 --container-format bare --public
+   30  wget https://cloud-images.ubuntu.com/releases/16.04/release-20160825/ubuntu-16.04-server-cloudimg-amd64-disk1.img
+   31  openstack image list
+   32  openstack compute service list
+   33  neutron ext-list
+   34  neutron agent-list
+   35  cinder service-list
+   36  openstack orchestration service list
+   37  exit
+   38  source admin.rc
+   39  openstack project create --domain default vault_tek
+   40  openstack user create --project vault_tek --password fa5tpa55w0rd --email chester@vaulttek.example --domain default chestercopperpot
+   41  openstack role add --project vault_tek --user chestercopperpot user
+   42  openstack project list
+   43  openstack user list
+   44  exit
+   45  find /etc -name 'policy.json' 2>/dev/null
+   46  cat /etc/neutron/policy.json | less
+   47  source admin.rc
+   48  openstack role list
+   49  openstack role create restricted_user
+   50  openstack user create --project acme_inc --password fa5tpa55w0rd --email edgar@example.com --domain default edgar
+   51  openstack role add --user edgar --project acme_inc restricted_user
+   52  openstack role assignment list --user edgar
+   53  openstack role assignment list --user edgar --names
+   54  openstack role assignment list --names
+   55  exit
+   56  source admin.rc
+   57  openstack group create --domain default engineers
+   58  openstack group create --domain default technicians
+   59  openstack group list
+   60  openstack group add user engineers aliceanderson
+   61  openstack group contains user engineers aliceanderson
+   62  openstack role add --domain default --group engineers heat_stack_owner
+   63  openstack group add user engineers bobbarker
+   64  openstack help | grep group
+   65  exit
+   66  source admin.rc
+   67  openstack domain create the_shire
+   68  openstack project create --domain the_shire bag_end
+   69  openstack user create --project bag_end --password noneshallpass --email gandalf@theshire.example --domain the_shire gandalf
+   70  openstack role add --domain the_shire --user gandalf admin
+   71  exit
+   72  openstack flavor list
+   73  openstack project list
+   74  openstack flavor list --os-auth-url http://controller:35357/v3 --os-username admin --os-domain-name default --os-project-name admin --os-password alta3
+   75  openstack flavor list
+   76  openstack -h
+   77  openstack -h | grep os-auth-url
+   78  openstack -h | grep os-username
+   79  openstack -h | grep os-project-name
+   80  openstack -h | grep os-domain-name
+   81  openstack -h | grep os-password
+   82  clear
+   83  openstack --debug flavor list --os-auth-url http://controller:35357/v3 --os-username admin --os-domain-name default --os-project-name admin --os-password alta3
+   84  exit
+   85  cat admin.rc
+   86  printenv
+   87  printenv | grep OS_
+   88  source admin.rc
+   89  printenv | grep OS_
+   90  openstack flavor list
+   91  openstack project create temp_project --domain default
+   92  openstack project list
+   93  openstack user list
+   94  openstack user show chestercopperpot
+   95  openstack project list
+   96  openstack project show **<DEFAULT_PROJECT_ID>**
+   97  openstack project show vault_tek
+   98  vim chester.rc
+   99  cat admin.rc
+  100  source admin.rc
+  101  vim chester.rc
+  102  cat chester.rc
+  103  source chester.rc
+  104  printenv | grep OS_
+  105  openstack flavor list
+  106  openstack user list
+  107  vim alice.rc
+  108  cat alice.rc
+  109  vim bob.rc
+  110  cat bob.rc
+  111  source admin.rc
+  112  openstack user create --domain default --project vault_tek --password fa5tpa55w0rd --email doris@day.com dorisday
+  113  openstack role add --user dorisday --project vault_tek user
+  114  vin doris.rc'
+  115  :q!
+  116  exit
+  117  source admin.rc
+  118  vim doris.rc
+  119  source admin.rc
+  120  source doris.rc
+  121  openstack flavor list
+  122  export PS1="Leroy Jenkins: "
+  123  source unset.rc
+  124  exit
+  125  printenv | grep NEW_LEARNING_VAR
+  126  export -n LEARNING_VAR
+  127  echo $LEARNING_VAR
+  128  exit
+  129  source admin.rc
+  130  openstack help | grep flavor
+  131  openstack flavor list
+  132  openstack flavor create --id 6 --ram 512 --disk 2 --vcpu 1 --public custom.shrimpy
+  133  openstack flavor list
+  134  source alice.rc
+  135  openstack flavor list
+  136  source chester.rc
+  137  openstack flavor list
+  138  openstack flavor create --help
+  139  source admin.rc
+  140  openstack flavor create --id 7 --ram 1250000 --disk 10 --vcpu 8 --private secret.monster
+  141  openstack flavor list
+  142  openstack flavor list --all
+  143  openstack help | grep flavor
+  144  nova help | grep flavor
+  145  nova help flavor-access-add
+  146  openstack project list
+  147  student@controller (admin) :~$ nova flavor-access-add 7 b5dd77f4537348b7aa8013c3eca62ba7
+  148  openstack project list
+  149  student@controller (admin) :~$ nova flavor-access-add 7 babec85e54ae40d3bf6e26cfc47c30ea
+  150  exit
+  151  source admin.rc
+  152  openstack help | grep flavor
+  153  openstack flavor list
+  154  source alice.rc
+  155  source chester.rc
+  156  openstack flavor create --help
+  157  source admin.rc
+  158  openstack flavor list
+  159  openstack flavor list --all
+  160  nova help flavor-access-add
+  161  openstack project list
+  162  ova flavor-access-add 7 b5dd77f4537348b7aa8013c3eca62ba7
+  163  nova flavor-access-add 7 b5dd77f4537348b7aa8013c3eca62ba7
+  164  openstack project list
+  165  openstack project list -all
+  166  openstack project list
+  167  nova flavor-access-add 7 babec85e54ae40d3bf6e26cfc47c30ea
+  168  source alice.rc
+  169  openstack flavor list
+  170  source checter.rc
+  171  source chester.rc
+  172  openstack flavor list
+  173  exit
+  174  source admin.rc
+  175  openstack flavor list
+  176  openstack image list
+  177  openstack network list
+  178  openstack network list | grep demo-net
+  179  openstack server create --flavor custom.shrimpy --image cirros --nic net-id=<UUID_OF_demo-net> vt1
+  180  openstack network list | grep demo-net
+  181  openstack server create --flavor custom.shrimpy --image cirros --nic net-id=f3e2c505-3056-4644-a2e9-b9a9044e9a3c vt1
+  182  openstack server list
+  183  openstack server show vt1
+  184  exit
+  185  source admin.rc
+  186  openstack server list --all
+  187  VAR_UUID=607a807d-6b2c-43f4-8dec-8735f7719087
+  188  openstack server show $VAR_UUID
+  189  nova diagnostics $VAR_UUID
+  190  openstack server stop $VAR_UUID
+  191  openstack server show $VAR_UUID
+  192  openstack server start $VAR_UUID
+  193  openstack server show $VAR_UUID
+  194  openstack server pause $VAR_UUID
+  195  openstack server show $VAR_UUID
+  196  openstack server unpause $VAR_UUID
+  197  openstack server show $VAR_UUID
+  198  openstack server suspend $VAR_UUID
+  199  openstack server show $VAR_UUID
+  200  openstack server resume $VAR_UUID
+  201  openstack server show $VAR_UUID
+  202  openstack server reboot $VAR_UUID
+  203  openstack server show $VAR_UUID
+  204  openstack server rescue $VAR_UUID
+  205  openstack server show $VAR_UUID
+  206  openstack server unrescue $VAR_UUID
+  207  openstack server show $VAR_UUID
+  208  exit
+  209  source admin.rc
+  210  openstack catalog list
+  211  openstack help service create
+  212  openstack service create --name photostorage --description "photo storage as a service" photo
+  213  openstack catalog list
+  214  openstack help endpoint create
+  215  openstack endpoint create --region RegionOne photo admin http://example.org:10101
+  216  openstack endpoint create --region RegionOne photo public http://example.org:10104
+  217  openstack endpoint create --region RegionOne photo internal http://example.org:10104
+  218  openstack catalog list
+  219  openstack endpoint list
+  220  openstack endpoint list | grep photo
+  221  exit
+  222  source admin.rc
+  223  openstack server list --all-projects
+  224  openstack server delete 607a807d-6b2c-43f4-8dec-8735f7719087
+  225  openstack server list --all-projects
+  226  neutron router-list --max-width 60
+  227  neutron subnet-list
+  228  neutron router-interface-delete demorouter demo-net_subnet
+  229  neutron router-delete demorouter provider-subnet
+  230  neutron subnet-delete demo-net_subnet
+  231  neutron net-delete demo-net
+  232  neutron subnet-delete provider-subnet
+  233  neutron net-delete provider-net
+  234  ip addr
+  235  cat /etc/neutron/plugins/ml2/ml2_conf.ini | egrep -v "(^#.*|^$)"
+  236  cat /etc/neutron/plugins/ml2/linuxbridge_agent.ini | egrep -v "(^#.*|^$)"
+  237  neutron net-create --shared --provider:physical_network provider --provider:network_type flat provider-net
+  238  neutron subnet-create --name provider-subnet --allocation-pool start=172.16.2.50,end=172.16.2.250 --dns-nameserver 10.3.200.1 --gateway 172.16.2.1 provider-net 172.16.2.0/24
+  239  neutron net-create demo-net
+  240  neutron subnet-create --name demo-net_subnet --dns-nameserver 10.3.200.1 --gateway 192.168.30.1 demo-net 192.168.30.0/24
+  241  neutron net-update provider-net --router:external
+  242  neutron router-create demorouter
+  243  neutron router-interface-add demorouter demo-net_subnet
+  244  neutron router-gateway-set demorouter provider-net
+  245  exit
+  246  source chester.rc
+  247  nova secgroup-list
+  248  nova secgroup-create http-ssh "Allowing http and ssh traffic"
+  249  nova secgroup-add-rule http-ssh tcp 80 80 0.0.0.0/0
+  250  nova secgroup-add-rule http-ssh tcp 22 22 0.0.0.0/0
+  251  nova secgroup-list-rules http-ssh
+  252  exit
+  253  source chester.rc
+  254  openstack network create vault-tek-network
+  255  neutron subnet-create --name vault-tek-network-subnet-10 --gateway 10.10.0.1 vault-tek-network 10.10.0.0/24
+  256  neutron router-create vault-tek-router
+  257  neutron net-list
+  258  neutron router-gateway-set vault-tek-router e1a6b623-c924-4b01-a444-f30f9b634421
+  259  neutron router-show e1a6b623-c924-4b01-a444-f30f9b634421 | less -S
+  260  source chester.rc
+  261  neutron net-list
+  262  neutron router-interface-add vault-tek-router vault-tek-network-subnet-10
+  263  neutron router-show e1a6b623-c924-4b01-a444-f30f9b634421 | less -S
+  264  source chester.rc
+  265  neutron net-list
+  266  openstack server create --image cirros --flavor m1.tiny --nic net-id=e1a6b623-c924-4b01-a444-f30f9b634421 --security-group http-ssh vt2
+  267  nova show vt2
+  268  ping 10.10.0.x
+  269  ping 10.10.0.3
+  270  ip netns list
+  271  sudo ip netns exec qrouter-da5095e4-dc50-41d7-8780-a935f4d31eec ssh cirros@10.10.0.3
+  272  exit
+  273  sudo ls /var/log/nova
+  274  sudo ls /var/log/glance
+  275  sudo ls /var/log/cinder
+  276  sudo ls /var/log/keystone
+  277  sudo ls /var/log/apache2
+  278  ssh compute1
+  279  exit
+  280  source admin.rc
+  281  openstack help | grep image
+  282  openstack image list
+  283  wget https://download.cirros-cloud.net/0.3.4/cirros-0.3.4-x86_64-disk.img
+  284  openstack image list
+  285  openstack image create --disk-format qcow2 --container-format bare --public --file cirros-0.3.4-x86_64-disk.img cirros_alpha
+  286  openstack image create --disk-format qcow2 --container-format bare --public --file cirros-0.3.4-x86_64-disk.img cirros_alphaopenstack help | grep image
+  287  openstack help | grep image
+  288  openstack image list
+  289  wget https://download.cirros-cloud.net/0.3.4/cirros-0.3.4-x86_64-disk.img --no-check-certificate
+  290  openstack image create --disk-format qcow2 --container-format bare --public --file cirros-0.3.4-x86_64-disk.img cirros_alpha
+  291  openstack image list
+  292  neutron net-list
+  293  openstack server create --flavor custom.shrimpy --image cirros_alpha --nic net-id=<demo-net_network_id> admin_box
+  294  source chester.rc
+  295  openstack volume create --size 1 NASferatu
+  296  openstack volume list
+  297  openstack server list
+  298  openstack server add volume 1f710250-7563-4029-a4f7-60bd2281bd0e 55dad89b-07db-49fa-9394-f17320f363d9
+  299  openstack volume list
+  300  openstack server remove volume 1f710250-7563-4029-a4f7-60bd2281bd0e 55dad89b-07db-49fa-9394-f17320f363d9
+  301  openstack volume list
+  302  openstack volume delete 55dad89b-07db-49fa-9394-f17320f363d9
+  303  openstack volume list
+  304  openstack ip floating create provider-net
+  305  openstack ip floating add 172.16.2.55 vt2
+  306  ssh cirros@172.16.2.55
+  307  openstack ip floating add 172.16.2.55 vt2
+  308  openstack volume list
+  309  openstack ip floating create provider-net
+  310  openstack ip floating add 172.16.2.56 vt2
+  311  source chester.rc
+  312  openstack volume create --size 1 NASferatu
+  313  openstack volume list
+  314  openstack server list
+  315  openstack server add volume 1f710250-7563-4029-a4f7-60bd2281bd0e 5121cd79-062a-47a1-8957-0d8598bbbe10
+  316  openstack server list
+  317  openstack volume list
+  318  openstack server remove volume 1f710250-7563-4029-a4f7-60bd2281bd0e 5121cd79-062a-47a1-8957-0d8598bbbe10
+  319  openstack server list
+  320  openstack volume list
+  321  openstack volume delete 5121cd79-062a-47a1-8957-0d8598bbbe10
+  322  openstack server list
+  323  openstack volume list
+  324  openstack ip floating create provider-net
+  325  openstack ip floating add 172.16.2.57 vt2
+  326  neutron net-list -F id -F name
+  327  openstack server create --flavor m1.tiny --image cirros --nic net-id=<UUID_OF_vault-tek-network> --security-group http-ssh vt3
+  328  openstack volume list
+  329  exit
+  330  source admin.rc
+  331  openstack help | grep image
+  332  openstack image list
+  333  wget https://download.cirros-cloud.net/0.3.4/cirros-0.3.4-x86_64-disk.img --no-check-certificate
+  334  openstack image create --disk-format qcow2 --container-format bare --public --file cirros-0.3.4-x86_64-disk.img cirros_alpha1
+  335  openstack image list
+  336  neutron net-list
+  337  openstack server create --flavor custom.shrimpy --image cirros_alpha1 --nic net-id=ffdf9278-9615-4869-97de-ba5de82004cb admin_box
+  338  openstack server create --flavor custom.shrimpy --image cirros_alpha --nic net-id=ffdf9278-9615-4869-97de-ba5de82004cb admin_box
+  339  exit
+  340  source chest.rc
+  341  source chester.rc
+  342  openstack volume list
+  343  openstack server list
+  344  openstack ip floating create provider-net
+  345  openstack ip floating add 172.16.2.58 vt2
+  346  exit
+  347  source chester.rc
+  348  openstack network create vault-tek-network
+  349  neutron subnet-create --name vault-tek-network-subnet-10 --gateway 10.10.0.1 vault-tek-network 10.10.0.0/24
+  350  neutron subnet-create --name vault-tek-network1-subnet-10 --gateway 10.10.0.1 vault-tek-network 10.10.0.0/24
+  351  neutron router-create vault-tek-router
+  352  neutron net-list
+  353  neutron subnet-create --name vault-tek-network1-subnet-10 --gateway 10.10.0.1 vault-tek-network 10.10.0.0/24
+  354  exit
+  355  source chester.rc
+  356  openstack network create vault-tek-network
+  357  neutron subnet-create --name vault-tek-network-subnet-10 --gateway 10.10.0.1 vault-tek-network 10.10.0.0/24
+  358  nova show vt2
+  359  neutron net-list
+  360  exit
+  361  source chester.rc
+  362  openstack network create vault-tek-network
+  363  neutron subnet-create --name vault-tek-network-subnet-10 --gateway 10.10.0.1 vault-tek-network 10.10.0.0/24
+  364  neutron router-create vault-tek-router
+  365  neutron net-list
+  366  neutron router-gateway-set vault-tek-router 8294e2ea-5ed7-4a80-92f3-7d72d4dc0da1
+  367  neutron router-show <ROUTER-ID> | less -S
+  368  neutron router-show beab112a-7ccf-4c00-ab99-99ab2dc3dd85 | less -S
+  369  neutron router-gateway-set vault-tek-router f8b1037a-238a-447a-a26d-14a05f27b281
+  370  neutron router-gateway-set vault-tek-router 8294e2ea-5ed7-4a80-92f3-7d72d4dc0da1
+  371  neutron router-show beab112a-7ccf-4c00-ab99-99ab2dc3dd85 | less -S
+  372  neutron router-interface-add vault-tek-router vault-tek-network-subnet-10
+  373  neutron router-show beab112a-7ccf-4c00-ab99-99ab2dc3dd85 | less -S
+  374  neutron router-port-list beab112a-7ccf-4c00-ab99-99ab2dc3dd85
+  375  neutron net-list
+  376  openstack server create --image cirros --flavor m1.tiny --nic net-id=f8b1037a-238a-447a-a26d-14a05f27b281 --security-group http-ssh vt2
+  377  nova show vt2
+  378  ping 10.10.0.x
+  379  ping 10.10.0.3
+  380  ip netns list
+  381  sudo ip netns exec qrouter-beab112a-7ccf-4c00-ab99-99ab2dc3dd85 ssh cirros@10.10.0.3
+  382  exit
+  383  sudo ls /var/log/nova
+  384  exit
+  385  source admin.rc
+  386  openstack help | grep image
+  387  openstack image list
+  388  neutron net-list
+  389  openstack image list
+  390  openstack server create --flavor custom.shrimpy --image cirros_alpha --nic net-id=<demo-net_network_id> admin_box
+  391  openstack server create --flavor custom.shrimpy --image cirros_alpha --nic net-id=ffdf9278-9615-4869-97de-ba5de82004cb admin_box
+  392  exit
+  393  source chester.rc
+  394  openstack volume list
+  395  openstack server list
+  396  openstack ip floating create provider-net
+  397  openstack ip floating add 172.16.2.60 vt2
+  398  ssh cirros@172.16.2.60
+  399  neutron net-list -F id -F name
+  400  openstack server create --flavor m1.tiny --image cirros --nic net-id=f8b1037a-238a-447a-a26d-14a05f27b281 --security-group http-ssh vt3
+  401  openstack server list | grep vt3
+  402  openstack volume list
+  403  openstack server list | grep vt3
+  404  openstack server remove volume e03ff103-2977-4dcd-9d8e-889e04e4244c 9db334f4-ab38-41b8-ae88-3de675e6d5f0
+  405  clear
+  406  openstack volume list
+  407  neutron net-list -F id -F name
+  408  openstack volume list
+  409  openstack server list
+  410  openstack volume list
+  411  openstack server remove volume b7488773-47b8-40e5-833a-18e768fd961d 9db334f4-ab38-41b8-ae88-3de675e6d5f0
+  412  openstack volume list
+  413  openstack server add volume e03ff103-2977-4dcd-9d8e-889e04e4244c 9db334f4-ab38-41b8-ae88-3de675e6d5f0
+  414  openstack volume list
+  415  openstack ip floating create provider-net
+  416  openstack ip floating add 172.16.2.61 vt3
+  417  ssh cirros@172.16.2.61
+  418  exit
+  419  cd .ssh
+  420  vim config
+  421  ssh-keygen -t rsa -f id_rsa_mygithub
+  422  cat id_rsa_mygithub.pub
+  423  ssh -T git@github.com
+  424  cat id_rsa_mygithub.pub
+  425  ssh -T git@github.com
+  426  ssh-keygen -t rsa -f id_rsa_mygithub
+  427  cat id_rsa_mygithub.pub
+  428  ssh -T git@github.com
+  429  ssh-keygen -t rsa -f id_rsa_mygithub
+  430  cat id_rsa_mygithub.pub
+  431  ssh -T git@github.com
+  432  git config --global user.name Scott Anderson
+  433  ssh -T git@github.com
+  434  ls
+  435  vim config
+  436  ls
+  437  vim config
+  438  ssh -T git@github.com
+  439  ls
+  440  rm id_rsa_mygithub
+  441  rm id_rsa_mygithub.pub 
+  442  ssh-keygen -t rsa -f id_rsa_mygithub
+  443  ls
+  444  cat id_rsa_mygithub.pub
+  445  ssh -T git@github.com
+  446  mkdir ~/myopenstack
+  447  cd ~/myopenstack
+  448  git config --global user.name sa8575
+  449  git config --global user.email sa8575@att.com
+  450  git config --list
+  451  git init
+  452  history > history.txt
